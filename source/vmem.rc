@@ -1,0 +1,74 @@
+
+; VMEM.RC - Copyright (c) 1992 M.B.Mallory
+
+#include <os2.h>
+#include "vmem.h"
+
+POINTER    VMEM_ICON    vmem.ico
+
+DLGTEMPLATE IDD_HELP
+  {
+  DIALOG "VMEM Help information" 0, -45,-75,235,155,, 
+                FCF_DLGBORDER | FCF_TITLEBAR
+    {
+    LTEXT "VMEM consists simply of a title bar and a system"  -1,5,144,225,8
+    LTEXT "  menu. Data is displayed in the title bar itself."-1,5,136,225,8
+
+    LTEXT "OPTIONS can be accessed by selecting it from the"  -1,5,124,225,8
+    LTEXT "  system menu or by double clicking mouse button 2"-1,5,116,225,8
+    LTEXT "  (usually the right button) on the title bar."    -1,5,108,225,8
+
+    LTEXT "Save screen position:"                             -1,5, 96,225,8
+    LTEXT "  If checked when the program is closed, the"      -1,5, 88,225,8
+    LTEXT "  current position of VMEM on the screen is saved."-1,5, 80,225,8
+    LTEXT "  If not checked, VMEM will always start from the" -1,5, 72,225,8
+    LTEXT "  last saved position."                            -1,5, 64,225,8
+
+    LTEXT "Restore defaults:"                                 -1,5, 52,225,8
+    LTEXT "  If checked when the program is closed, all saved"-1,5, 44,225,8
+    LTEXT "  VMEM data is deleted and hard coded defaults are"-1,5, 36,225,8
+    LTEXT "  used the next time the program is started. This" -1,5, 28,225,8
+    LTEXT "  option should be performed before removing"      -1,5, 20,225,8
+    LTEXT "  VMEM from your system."                          -1,5, 12,145,8
+
+    DEFPUSHBUTTON  "~OK" DID_OK, 155, 3, 40, 14, WS_GROUP
+    }
+  }
+
+DLGTEMPLATE IDD_ABOUT
+  {
+  DIALOG "About  VMEM" 0, -20,-40,180,85,, FCF_DLGBORDER | FCF_TITLEBAR
+    {                                                      
+    ICON   VMEM_ICON                            -1,  78,64,  0,0
+    CTEXT "VMEM  1.0   (C) 1992  M.B.Mallory"   -1,  10,51,160,8
+    CTEXT "Displays the largest block of"       -1,  10,36,160,8
+    CTEXT "virtual memory available in OS/2 2.O"-1,  10,26,160,8  
+
+    DEFPUSHBUTTON  "~OK" DID_OK, 70,  5,  40, 14,WS_GROUP
+    }
+  }
+
+#define  ARB  AUTORADIOBUTTON
+#define  ACB  AUTOCHECKBOX
+#define  CB   CHECKBOX
+
+DLGTEMPLATE IDD_OPTIONS
+  {
+  DIALOG "VMEM  Options" 0, -15,-112,140,102,,FCF_DLGBORDER | FCF_TITLEBAR
+    {
+    GROUPBOX    "Termination control"           -1,  10,62,120,35
+      CB  "~Save screen position"   ACB_SAVESCRPOS,  15,77,110,10,
+        BS_3STATE | WS_VISIBLE | WS_TABSTOP | WS_GROUP
+      ACB "~Restore defaults"          ACB_RESTORE,  15,67,110,10
+
+    GROUPBOX    "Data display format"           -1,  10,24,120,35
+      ARB "~MegaBytes"               ARB_DISPLAYMB,  15,39,110,10
+      ARB "~KiloBytes"               ARB_DISPLAYKB,  15,29,110,10
+    DEFPUSHBUTTON "~OK"                     DID_OK,  10, 5, 40,14,WS_GROUP
+    PUSHBUTTON    "~About"               DID_ABOUT,  50, 5, 40,14
+    PUSHBUTTON    "~Help"                 DID_HELP,  90, 5, 40,14
+    }
+  }
+
+
+

@@ -1,0 +1,10 @@
+
+; TIMEUP.def - module definition file.
+
+NAME        "TIMEUP"     WINDOWAPI
+DESCRIPTION "TIMEUP 1.21 (c) 1993 Ronald Van Iwaarden"
+PROTMODE
+
+
+
+

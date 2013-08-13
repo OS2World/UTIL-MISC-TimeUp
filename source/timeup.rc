@@ -1,0 +1,87 @@
+; TIMEUP.RC - Ronald Van Iwaarden 1993
+; Modified from VMEM.RC - Copyright (c) 1992 M.B.Mallory
+
+#include <os2.h>
+#include "timeup.h"
+
+POINTER    TIMEUP_ICON    TIMEUP.ico
+
+DLGTEMPLATE IDD_HELP
+  {
+  DIALOG "TimeUp Help information" 0, -45,-75,350,226,, 
+                FCF_DLGBORDER | FCF_TITLEBAR
+    {
+    LTEXT "TimeUP consists simply of a title bar and a system menu. Data is displayed"  -1,5, 216,340,8
+    LTEXT "  in the title bar itself. The maximum time that can be recorded is"  -1,5, 208,340,8
+    LTEXT "  49 Days, 17 hours, and 2 minutes"          -1,5, 200,340,8
+
+    LTEXT "OPTIONS can be accessed by selecting it from the system menu"    -1,5, 188,340,8
+
+    LTEXT "TimeUP:"                                             -1,5, 176,340,8
+    LTEXT "  If checked the program will display the amount of time that has elapsed" -1,5, 168,340,8
+    LTEXT "  since the system was booted"        -1,5, 160,340,8
+
+    LTEXT "Record TimeUP:"                                       -1,5, 148,340,8
+    LTEXT "  If checked the program will display the maximum recorded Time UP and"   -1,5, 140,340,8
+    LTEXT "  append the time with an R."   -1,5, 132,340,8
+    LTEXT "  NOTE: The record time is flushed if restore defaults is checked when"       -1,5, 124,340,8
+    LTEXT "  this app is terminated!"  -1,5, 116,340,8
+    LTEXT "  This is also toggled by double clicking the right mouse button on the" -1,5, 132,340,8
+    LTEXT "  title bar"                     -1,5, 108,340,8
+
+    LTEXT "Save screen position:"                               -1,5, 96,340,8
+    LTEXT "  If checked when the program is closed, the current position of TimeUP"        -1,5, 88,340,8
+    LTEXT "  on the screen and the record Time UP is saved."-1,5, 80,340,8
+
+    LTEXT "Restore defaults:"                                  -1,5, 68,340,8
+    LTEXT "  If checked when the program is closed, all saved TimeUP data is deleted" -1,5, 60,340,8
+    LTEXT "  and hard coded defaults are used the next time the program is started "   -1,5, 52,340,8
+    LTEXT "  This option should be performed before removing TimeUP from your system"   -1,5, 44,340,8
+    LTEXT "  NOTE: If this is checked, Maximum TimeUP will be flushed when the"    -1,5, 36,340,8
+    LTEXT "         program is exited!!"    -1,5, 28,340,8
+
+    DEFPUSHBUTTON  "~OK" DID_OK, 155, 3, 40, 14, WS_GROUP
+    }
+  }
+
+DLGTEMPLATE IDD_ABOUT
+  {
+  DIALOG "About  TimeUp" 0, -20,-40,180,85,, FCF_DLGBORDER | FCF_TITLEBAR
+    {                                                      
+    ICON   TIMEUP_ICON                            -1,  78,69,  0,0
+    CTEXT "TimeUp  1.21        R. Van Iwaarden"   -1,  10,59,160,8
+    CTEXT "Adapted from Vmem 1.0"   -1,  10,51,160,8
+    CTEXT "(C) 1992 M.B.Mallory"   -1,  10,43,160,8
+    CTEXT "Displays the amount of time"       -1,  10,31,160,8
+    CTEXT "since last reboot of OS/2 2.O"-1,  10,22,160,8  
+
+    DEFPUSHBUTTON  "~OK" DID_OK, 70,  5,  40, 14,WS_GROUP
+    }
+  }
+
+#define  ARB  AUTORADIOBUTTON
+#define  ACB  AUTOCHECKBOX
+#define  CB   CHECKBOX
+
+DLGTEMPLATE IDD_OPTIONS
+  {
+  DIALOG "TIMEUP  Options" 0, -15,-112,140,102,,FCF_DLGBORDER | FCF_TITLEBAR
+    {
+    GROUPBOX    "Termination control"           -1,  10,24,120,35
+      CB  "~Save position & Record"   ACB_SAVESCRPOS,  15,39,110,10,
+        BS_3STATE | WS_VISIBLE | WS_TABSTOP | WS_GROUP
+      ACB "~Restore defaults"          ACB_RESTORE,  15,29,110,10
+
+    DEFPUSHBUTTON "~OK"                     DID_OK,  10, 5, 40,14,WS_GROUP
+    PUSHBUTTON    "~About"               DID_ABOUT,  50, 5, 40,14
+    PUSHBUTTON    "~Help"                 DID_HELP,  90, 5, 40,14
+
+    GROUPBOX    "Display Control"           -1,  10,62,120,35
+      ARB "~TimeUP"          ARB_TIMEUP,  15,77,110,10
+      ARB  "Record Time UP"   ARB_RECORD,  15,67,110,10,
+
+    }
+  }
+
+
+

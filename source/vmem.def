@@ -1,0 +1,10 @@
+
+; VMEM.def - module definition file.
+
+NAME        "VMEM"     WINDOWAPI
+DESCRIPTION "VMEM 1.0 (c) 1992 M.B.Mallory"
+PROTMODE
+
+
+
+

@@ -1,0 +1,20 @@
+
+VMEM Readme file.
+
+VMEM displays the largest block of virtual memory available to the
+  user in the smallest window possible... a titlebar.
+  It can then be left running along the top or bottom of the screen
+  with virtually no loss of screen space.
+
+A few simple options can be accessed by selecting "VMEM Options"
+  from the system menu or by double clicking mouse button 2 on the
+  title bar.
+
+Author: M.B.Mallory
+CIS ID: 72027,3444
+Tools : IBM C Set/2 1.0
+        OS/2 2.0 Developers Tool Kit
+        MASM 6.00B
+
+Requires OS/2 2.x
+

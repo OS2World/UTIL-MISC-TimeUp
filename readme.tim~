@@ -1,0 +1,47 @@
+TIMEUP 1.2 Readme file. 05/07/93
+
+TIMEUP displays the amount of time since OS/2 2.0 was booted in the smallest
+window possible... a titlebar.  The maximum length of time that TIMEUP can
+record is 49 days, 17 hours, and 2 minutes. It updates the display every
+10 seconds to minimize the CPU use and still retain a bit of accuracy.
+It also writes the maximum time up out to disk every minute if it has
+changed. It can then be left running along the top or bottom of the screen
+with virtually no loss of screen space.
+
+I have adapted this program from the program VMEM by M.B.Mallory.  I sincerely
+recognize the work that he went through to produce the program VMEM which I
+have included.  The source to VMEM is also include and modified by myself
+so that it will compile under EMX 0.8f.
+
+A few simple options can be accessed by selecting "TIMEUP Options"
+from the system menu.
+
+Double clicking on the title bar with the right mouse button will toggle
+between displaying the maximum Time UP and the Time UP displays.
+
+I will take no responsibility for any damage that this program may do to your
+system or to any data that may be contained therein.
+
+Author  : Ronald Van Iwaarden
+Internet: rvaniwaa@copper.denver.colorado.edu
+Fidonet : 1:104/338@fidonet.org
+BBS     : The OS/2 Source BBS  (303)744-0373
+Tools   : EMX 0.8f or later
+
+Requires OS/2 2.x and EMX.DLL version 0.8f or later
+
+
+
+HISTORY
+=======
+
+v1.0	The first release
+
+v1.01	Bug fix for 8514/a displays.  Recompiled to use emx.dll alone and
+	to not need emxlibc.dll.  This resulted in an 8k larger executable but
+	the 80k emxlibc.dll was no longer needed.
+
+v1.2    Added the ability to store and recall the maximum up time.  Also,
+	modified so that double-clicking on the title bar with the right
+	mouse button toggles between maximum Time UP and Time UP
+	A few modification made for a program that used a bit less CPU.
